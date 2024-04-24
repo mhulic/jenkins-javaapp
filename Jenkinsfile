@@ -73,25 +73,35 @@ pipeline{
             }
         }
 
-        stage('Docker Image Build'){
-            when { expression {  params.action == 'create' } }
+        stage('Build MSSQL DB'){
+         when { expression {  params.action == 'create' } }
             steps{
                script{
-                   
-                   dockerBuild("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
+                   buildDB()
                }
             }
         }
 
-        stage('Docker Image Scan: trivy '){
-         when { expression {  params.action == 'create' } }
-            steps{
-               script{
+
+        // stage('Docker Image Build'){
+        //     when { expression {  params.action == 'create' } }
+        //     steps{
+        //        script{
                    
-                   dockerImageScan("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
-               }
-            }
-        }
+        //            dockerBuild("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
+        //        }
+        //     }
+        // }
+
+        // stage('Docker Image Scan: trivy '){
+        //  when { expression {  params.action == 'create' } }
+        //     steps{
+        //        script{
+                   
+        //            dockerImageScan("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
+        //        }
+        //     }
+        // }
 
     }
 }
