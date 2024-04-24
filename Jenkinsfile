@@ -17,11 +17,21 @@ pipeline{
         stage('Git Checkout'){
                     when { expression {  params.action == 'create' } }
             steps{
-            gitCheckout(
-                branch: "main",
-                url: "https://github.com/mhulic/jenkins-javaapp.git"
-            )
+                gitCheckout(
+                    branch: "main",
+                    url: "https://github.com/mhulic/jenkins-javaapp.git"
+                )
             }
         }
+
+        stage('Unit test MVN'){
+                    when { expression {  params.action == 'create' } }
+            steps{
+                mvnTest(
+                )
+            
+            }
+        }
+
     }
 }
