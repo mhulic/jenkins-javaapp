@@ -19,7 +19,7 @@ pipeline{
             steps{
                 gitCheckout(
                     branch: "main",
-                    url: "https://github.com/mhulic/jenkins-javaapp.git"
+                    url: "https://github.com/mhulic/Calculator.git"
                 )
             }
         }
