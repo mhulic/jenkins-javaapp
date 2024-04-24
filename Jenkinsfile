@@ -19,8 +19,8 @@ pipeline{
                     when { expression {  params.action == 'create' } }
             steps{
                 gitCheckout(
-                    branch: "${param.Branch}",
-                    url: "${param.GitRepositary}"
+                    branch: "${params.Branch}",
+                    url: "${params.GitRepositary}"
                 )
             }
         }
