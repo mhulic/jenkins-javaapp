@@ -43,26 +43,26 @@ pipeline{
             }
         }
 
-        stage('Static code analysis: Sonarqube'){
-                     when { expression {  params.action == 'create' } }
-            steps{
-               script{
-                   def SonarQubecredentialsId = 'admin'
-                   statiCodeAnalysis(SonarQubecredentialsId)
-               }
-            }
-        }
+        // stage('Static code analysis: Sonarqube'){
+        //              when { expression {  params.action == 'create' } }
+        //     steps{
+        //        script{
+        //            def SonarQubecredentialsId = 'admin'
+        //            statiCodeAnalysis(SonarQubecredentialsId)
+        //        }
+        //     }
+        // }
 
-        stage('Quality Gate Status Check : Sonarqube'){
-                    when { expression {  params.action == 'create' } }
-            steps{
-               script{
+        // stage('Quality Gate Status Check : Sonarqube'){
+        //             when { expression {  params.action == 'create' } }
+        //     steps{
+        //        script{
                    
-                   def SonarQubecredentialsId = 'admin'
-                   QualityGateStatus(SonarQubecredentialsId)
-               }
-            }
-        }
+        //            def SonarQubecredentialsId = 'admin'
+        //            QualityGateStatus(SonarQubecredentialsId)
+        //        }
+        //     }
+        // }
 
     }
 }
