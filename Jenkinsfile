@@ -64,14 +64,14 @@ pipeline{
         //     }
         // }
 
-        stage('Maven Build : maven'){
-         when { expression {  params.action == 'create' } }
-            steps{
-               script{
-                   mvnBuild()
-               }
-            }
-        }
+        // stage('Maven Build : maven'){
+        //  when { expression {  params.action == 'create' } }
+        //     steps{
+        //        script{
+        //            mvnBuild()
+        //        }
+        //     }
+        // }
 
         // stage('Build MSSQL DB'){
         //  when { expression {  params.action == 'create' } }
@@ -82,11 +82,21 @@ pipeline{
         //     }
         // }
 
-        stage('Build Postgres DB'){
+        // stage('Build Postgres DB'){
+        //  when { expression {  params.action == 'create' } }
+        //     steps{
+        //        script{
+        //            buildPostgresDB()
+        //        }
+        //     }
+        // }
+
+
+        stage('Build Databases YAML file'){
          when { expression {  params.action == 'create' } }
             steps{
                script{
-                   buildPostgresDB()
+                   buildDBSyaml()
                }
             }
         }
