@@ -73,14 +73,32 @@ pipeline{
             }
         }
 
-        stage('Build MSSQL DB'){
+        // stage('Build MSSQL DB'){
+        //  when { expression {  params.action == 'create' } }
+        //     steps{
+        //        script{
+        //            buildMSSQLDB()
+        //        }
+        //     }
+        // }
+
+        stage('Build Postgres DB'){
          when { expression {  params.action == 'create' } }
             steps{
                script{
-                   buildDB()
+                   buildPostgresDB()
                }
             }
         }
+
+        // stage('Install Postgres DB'){
+        //  when { expression {  params.action == 'create' } }
+        //     steps{
+        //        script{
+        //            buildPostgresDB()
+        //        }
+        //     }
+        // }
 
 
         // stage('Docker Image Build'){
