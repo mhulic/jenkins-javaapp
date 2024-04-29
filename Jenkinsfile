@@ -96,7 +96,7 @@ pipeline{
          when { expression {  params.action == 'create' } }
             steps{
                script{
-                   sh 'echo ahoj cau cau'
+                   sh 'docker compose up'
                }
             }
         }
