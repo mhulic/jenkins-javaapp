@@ -107,6 +107,7 @@ pipeline{
             steps{
                script{
                    sh 'docker compose up -d'
+                   sh 'docker start java-app-deploy-sql2019-1'
                }
             }
         }
