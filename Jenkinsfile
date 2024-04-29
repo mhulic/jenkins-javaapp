@@ -102,14 +102,14 @@ pipeline{
         }
 
 
-        // stage('Build Databases YAML file'){
-        //  when { expression {  params.action == 'create' } }
-        //     steps{
-        //        script{
-        //            sh 'docker compose up'
-        //        }
-        //     }
-        // }
+        stage('Build Databases YAML file'){
+         when { expression {  params.action == 'create' } }
+            steps{
+               script{
+                   sh 'docker compose up'
+               }
+            }
+        }
 
         // stage('Install Postgres DB'){
         //  when { expression {  params.action == 'create' } }
